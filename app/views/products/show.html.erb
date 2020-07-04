@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @product.title %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @product.desc %>
+</p>
+
+
+<%= form_for [@product, Tweet.new] do |f| %>
+  <%= f.text_field :body%>
+  <%= f.submit '送信'%>
+<%end%>
+
+<div>
+  <%@tweets.each do |tweet|%>
+    <div>
+      <%= tweet.body%>
+       <div>
+         tweeのフォーム
+         <%= form_for [@product, Tweet.new] do |f| %>
+            <%= f.text_field :body%>
+            <%= f.hidden_field :parent_id, value: tweet.id%>
+            <%= f.submit 'クリック'%>
+          <%end%>
+       </div>
+      <% if tweet.childs.present?%>
+      <div>
+        <% tweet.childs.each do |child|%>
+         <%= child.body%>
+         <br>
+        <%end%>
+      </div>
+      <%end%>
+
+    </div>
+    <br>
+  <%end%>
+</div>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
