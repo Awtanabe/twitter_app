@@ -2,7 +2,7 @@ class TweetsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-
+    @tweets = Tweet.all
   end
   def create
     @tweet = Tweet.new(tweet_prams)

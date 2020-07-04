@@ -1,11 +1,21 @@
 import React from "react"
 import PropTypes from "prop-types"
+import Tweet from './tweet'
+
 class Tweets extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      tweets: [],
       value: ''
     }
+  }
+
+
+  componentDidMount() {
+    this.setState({
+      tweets: this.props.tweets
+    })
   }
 
   handleValue(e) {
@@ -17,12 +27,15 @@ class Tweets extends React.Component {
   handleSave() {
     const formData = new FormData();
     formData.append("tweet[body]", this.state.value)
-
     fetch('/tweets', {
       method: 'POST',
       body: formData
     })
-    this.setState({value: ''})
+    this.state.tweets
+    const newTweets =  Object.assign([],this.state.tweets) 
+
+    newTweets[`${this.state.tweets.length}`] = {id: this.state.tweets.length + 1, body: this.state.value}
+    this.setState({tweets: newTweets,value: ''})
   }
 
   render () {
@@ -58,6 +71,9 @@ class Tweets extends React.Component {
                 </div>
               </div>
 
+            </div>
+            <div className="tweets">
+              {this.state.tweets.map((tweet) => <Tweet tweet={tweet}/>)}
             </div>
           </div>
         </div>
