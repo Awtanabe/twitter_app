@@ -7,7 +7,8 @@ class Tweets extends React.Component {
     super(props)
     this.state = {
       tweets: [],
-      value: ''
+      value: '',
+      disabled: true
     }
   }
 
@@ -19,9 +20,18 @@ class Tweets extends React.Component {
   }
 
   handleValue(e) {
-    this.setState({
-      value: e.target.value
-    })
+    const inputValue = e.target.value
+    if (inputValue.length > 0) {
+      this.setState({
+        value: e.target.value,
+        disabled: false
+      })  
+    } else {
+      this.setState({
+        value: e.target.value,
+        disabled: true
+      })
+    }
   }
 
   handleSave() {
@@ -31,7 +41,6 @@ class Tweets extends React.Component {
       method: 'POST',
       body: formData
     })
-    this.state.tweets
     const newTweets =  Object.assign([],this.state.tweets) 
 
     newTweets[`${this.state.tweets.length}`] = {id: this.state.tweets.length + 1, body: this.state.value}
@@ -67,7 +76,7 @@ class Tweets extends React.Component {
                       <li><i className="fa fa-search"></i></li>
                     </ul>
                   </div>
-                  <button onClick={()=> this.handleSave()}>Tweet</button>
+                  <button onClick={()=> this.handleSave()} disabled={this.state.disabled}>Tweet</button>
                 </div>
               </div>
 
