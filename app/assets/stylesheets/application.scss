@@ -89,3 +89,30 @@ input[type='text'] {
 .tweet .footer li {
   padding: 0 20px;
 }
+
+// サイド
+
+.sidebar {
+  position: relative;
+}
+
+ul.side-links{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 10px;
+  top: 30px;
+  li {
+    width: 40px;
+    height: 40px;
+    padding: 9px 4px;
+    &:hover {
+      width: 40px;
+      height: 40px;
+      padding: 9px 4px;
+      opacity: 0.7;
+      background-color: skyblue;
+      border-radius: 50px;    
+    }
+  }
+}

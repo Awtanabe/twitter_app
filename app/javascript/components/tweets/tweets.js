@@ -51,7 +51,16 @@ class Tweets extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-xs-3">1</div>
+          <div className="col-xs-3 sidebar">
+            <ul className="side-links">
+              <li><i className="fa fa-search"></i></li>
+              <li><i className="fa fa-search"></i></li>
+              <li><i className="fa fa-search"></i></li>
+              <li><i className="fa fa-search"></i></li>
+              <li><i className="fa fa-search"></i></li>
+              <li><i className="fa fa-search"></i></li>
+            </ul>
+          </div>
           <div className="col-xs-7 main">
             <div className="header">
               <div className="title">
