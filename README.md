@@ -1,24 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## タスク
 
-* Ruby version
+- 画像を表示する
+- 検索機能
+- 通知機能
+- スマホ対応
+- メッセージ
+  - リプライをする
+- deviseを入れる
+- マイページ
+- follow
+## 実装内容
 
-* System dependencies
+- tweet一覧
+- ツイートボタンをからでは押せない用にする
+- hoverをつける
 
-* Configuration
+- 絵文字を入力できる様にする
 
-* Database creation
+- 画像を保存する with carriaweave
 
-* Database initialization
+- 画像をgitの対象を外す
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- スマホ対応する
+  - breakポイントを意識
