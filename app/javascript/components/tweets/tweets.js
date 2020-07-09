@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Tweet from './tweet'
+import { Picker } from 'emoji-mart';
+import 'emoji-mart/css/emoji-mart.css';
 
 class Tweets extends React.Component {
   constructor(props) {
@@ -8,7 +10,8 @@ class Tweets extends React.Component {
     this.state = {
       tweets: [],
       value: '',
-      disabled: true
+      disabled: true,
+      showEmoji: true
     }
   }
 
@@ -32,6 +35,18 @@ class Tweets extends React.Component {
         disabled: true
       })
     }
+  }
+
+  addEmoji(e) {
+    debugger
+    let emoji = e.native
+    this.setState({
+      value: this.state.value + emoji
+    })
+  }
+
+  showEmoji(e) {
+    this.setState({showEmoji: !this.state.showEmoji})
   }
 
   handleSave() {
@@ -73,13 +88,16 @@ class Tweets extends React.Component {
                   </div>
                   <form>
                     <input type="text" value={this.state.value} placeholder="Whats's happing?" onChange={(e) => this.handleValue(e)}/>
+                    <div className={this.state.showEmoji ? 'disabled' : ''}>
+                      <Picker disableSearchBar={true} onSelect={(emoji) => this.addEmoji(emoji)}/>
+                    </div>
                   </form>
                 </div>
                 <div className="form-fotter">
                   <div>
                     <ul className="links">
                       <li><i className="fa fa-search"></i></li>
-                      <li><i className="fa fa-search"></i></li>
+                      <li><i className="fa fa-meh-o" onClick={(e) => this.showEmoji(e)}></i></li>
                       <li><i className="fa fa-search"></i></li>
                       <li><i className="fa fa-search"></i></li>
                       <li><i className="fa fa-search"></i></li>
