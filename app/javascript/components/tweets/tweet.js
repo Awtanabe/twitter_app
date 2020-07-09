@@ -1,7 +1,10 @@
 import React from "react"
 class Tweet extends React.Component {
-  renderImage(){
-    return (<div>{/*画像があれば表示する*/}</div>)
+  renderImage(image){
+    const url = image.url == null ? null : image.url
+    if (url) {
+      return (<p><img src={url}/></p>)
+    }
   }
   render() {
     console.log(this.props.tweet)
@@ -12,18 +15,18 @@ class Tweet extends React.Component {
           <img src="assets/icon.png"/>
         </div>
         <div className="body">
-          <p>
+         <div className="header">
+           <p>
             {this.props.tweet.body}
           </p>
-          {this.renderImage()}
-          <div className="footer">
-            <ul>
-              <li><i className="fa fa-search"></i></li>
-              <li><i className="fa fa-search"></i></li>
-              <li><i className="fa fa-search"></i></li>
-              <li><i className="fa fa-search"></i></li>
-            </ul>
-　         </div>
+          {this.renderImage(this.props.tweet.image)}
+         </div>
+          <ul>
+            <li><i className="fa fa-search"></i></li>
+            <li><i className="fa fa-search"></i></li>
+            <li><i className="fa fa-search"></i></li>
+            <li><i className="fa fa-search"></i></li>
+          </ul>
         </div>
       </div>
     )
