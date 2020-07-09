@@ -6,6 +6,7 @@ class TweetsController < ApplicationController
   end
   def create
     @tweet = Tweet.new(tweet_prams)
+    binding.pry
     if @tweet.save
       redirect_to tweets_path
 
@@ -16,6 +17,6 @@ class TweetsController < ApplicationController
 
   private
   def tweet_prams
-    params.require(:tweet).permit(:body, :parent_id)
+    params.require(:tweet).permit(:body, :image, :parent_id)
   end
 end

@@ -4,6 +4,8 @@ class Tweet extends React.Component {
     return (<div>{/*画像があれば表示する*/}</div>)
   }
   render() {
+    console.log(this.props.tweet)
+
     return (
       <div key={this.props.tweet.id} className="tweet">
         <div className="image text-center">

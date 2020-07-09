@@ -120,7 +120,7 @@ ul.side-links{
 // 絵文字
 
 .disabled{
-  display: none;
+  display: none !important;
 }
 
 .emoji-mart.emoji-mart-light{

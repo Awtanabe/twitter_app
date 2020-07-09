@@ -10,6 +10,7 @@ class Tweets extends React.Component {
     this.state = {
       tweets: [],
       value: '',
+      image: '',
       disabled: true,
       showEmoji: true
     }
@@ -38,7 +39,6 @@ class Tweets extends React.Component {
   }
 
   addEmoji(e) {
-    debugger
     let emoji = e.native
     this.setState({
       value: this.state.value + emoji
@@ -49,9 +49,15 @@ class Tweets extends React.Component {
     this.setState({showEmoji: !this.state.showEmoji})
   }
 
+  handleImage(e) {
+    this.setState({image: e.target.files[0]})
+  }
+
   handleSave() {
     const formData = new FormData();
     formData.append("tweet[body]", this.state.value)
+    formData.append("tweet[image]", this.state.image)
+    
     fetch('/tweets', {
       method: 'POST',
       body: formData
@@ -96,7 +102,11 @@ class Tweets extends React.Component {
                 <div className="form-fotter">
                   <div>
                     <ul className="links">
-                      <li><i className="fa fa-search"></i></li>
+                      <li>
+                        <label className="fa fa-image">
+                          <input type="file" className="disabled" onChange={(e) => this.handleImage(e)}/>
+                        </label>
+                      </li>
                       <li><i className="fa fa-meh-o" onClick={(e) => this.showEmoji(e)}></i></li>
                       <li><i className="fa fa-search"></i></li>
                       <li><i className="fa fa-search"></i></li>
