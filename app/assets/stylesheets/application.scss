@@ -17,14 +17,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-ul {
-  margin: 0;
-}
-
 // リセットcss
 
 li {
   list-style: none;
+}
+
+// margin-bottomが下に
+ul {
+  margin: 0;
 }
 
 .form-header{
