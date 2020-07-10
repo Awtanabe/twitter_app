@@ -84,7 +84,7 @@ class Tweets extends React.Component {
           </div>
           <div className="col-xs-7 main">
             <div className="header">
-              <div className="title">
+              <div className="title" id="header-title">
                 <h4>Home</h4>
               </div>
               <div className="tweet-form">
@@ -119,7 +119,7 @@ class Tweets extends React.Component {
 
             </div>
             <div className="tweets">
-              {this.state.tweets.map((tweet) => <Tweet tweet={tweet}/>)}
+              {this.state.tweets.map((tweet) => <Tweet key={tweet.id} tweet={tweet}/>)}
             </div>
           </div>
         </div>

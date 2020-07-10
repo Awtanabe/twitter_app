@@ -7,8 +7,6 @@ class Tweet extends React.Component {
     }
   }
   render() {
-    console.log(this.props.tweet)
-
     return (
       <div key={this.props.tweet.id} className="tweet">
         <div className="image text-center">
