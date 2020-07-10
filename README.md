@@ -3,8 +3,8 @@
 
 ## タスク
 
-- [] homeヘッダーの固定
-- [] 画像を表示する
+- [] 画像を表示する done
+- [] homeヘッダーの固定 done
 - [] 検索機能
 - [] 通知機能
 - [] スマホ対応
@@ -27,3 +27,15 @@
 
 - スマホ対応する
   - breakポイントを意識
+
+
+## 課題
+
+- 絵文字の挿入位置
+
+参考になりそう
+https://blog.ver001.com/javascript-textarea-selectionstartend/
+
+- ハッシュタグに色付け
+
+https://qiita.com/otsumitsu/items/ae205a044b7039e79cae
