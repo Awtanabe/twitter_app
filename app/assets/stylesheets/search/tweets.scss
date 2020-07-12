@@ -1,0 +1,12 @@
+// Place all the styles related to the Search::Tweets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main-topicts ul{
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  li {
+    padding: 0 10px;
+  }
+}
