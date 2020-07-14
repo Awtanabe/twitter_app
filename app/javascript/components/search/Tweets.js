@@ -1,6 +1,7 @@
 import React from "react"
 import Tweet from '../tweets/tweet'
 import SideBar from '../layout/SideBar'
+import SearchHeader from '../layout/SearchHeader'
 
 const TAB_TYPES = {
   FOR_YOU: 'for_you',
@@ -51,6 +52,7 @@ class Tweets extends React.Component {
       image: '',
       cuurentTabType: TAB_TYPES.FOR_YOU
     }
+    this.handleSearch = this.handleSearch.bind(this)
   }
 
   componentDidMount() {
@@ -105,21 +107,7 @@ class Tweets extends React.Component {
       <div className="row">
         <SideBar/>
         <div className="col-xs-7 main">
-          <div className="header">
-            <div className="title" id="header-title">
-              <h4>Home</h4>
-            </div>
-            <div className="tweet-form">
-              <div className="form-header">
-                <div className="icon">
-                  <img src="/assets/icon.png"/>
-                </div>
-                <form>
-                  <input type="text"  placeholder="search word" onChange={(e) => this.handleSearch(e)}/>
-                </form>
-              </div>
-            </div>
-          </div>
+          <SearchHeader handleSearch={this.handleSearch}/>
           <div className="main-topicts">
             <Tabs
               cuurentTabType={this.state.cuurentTabType}
