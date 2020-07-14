@@ -1,6 +1,6 @@
 import React from "react"
 import Tweet from '../tweets/tweet'
-
+import SideBar from '../layout/SideBar'
 
 const TAB_TYPES = {
   FOR_YOU: 'for_you',
@@ -103,16 +103,7 @@ class Tweets extends React.Component {
     return (
       <div className="container">
       <div className="row">
-        <div className="col-xs-3 sidebar">
-          <ul className="side-links">
-            <li><i className="fa fa-search"></i></li>
-            <li><i className="fa fa-search"></i></li>
-            <li><i className="fa fa-search"></i></li>
-            <li><i className="fa fa-search"></i></li>
-            <li><i className="fa fa-search"></i></li>
-            <li><i className="fa fa-search"></i></li>
-          </ul>
-        </div>
+        <SideBar/>
         <div className="col-xs-7 main">
           <div className="header">
             <div className="title" id="header-title">
@@ -128,7 +119,6 @@ class Tweets extends React.Component {
                 </form>
               </div>
             </div>
-
           </div>
           <div className="main-topicts">
             <Tabs

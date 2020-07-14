@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import Tweet from './tweet'
 import { Picker } from 'emoji-mart';
+import SideBar from '../layout/SideBar'
 import 'emoji-mart/css/emoji-mart.css';
 
 class Tweets extends React.Component {
@@ -71,18 +72,7 @@ class Tweets extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-xs-3 sidebar">
-            <ul className="side-links">
-              <li><i className="fa fa-search"></i></li>
-              <li>
-                <a href="/search/tweets"><i className="fa fa-search"></i></a>
-              </li>
-              <li><i className="fa fa-search"></i></li>
-              <li><i className="fa fa-search"></i></li>
-              <li><i className="fa fa-search"></i></li>
-              <li><i className="fa fa-search"></i></li>
-            </ul>
-          </div>
+          <SideBar/>
           <div className="col-xs-7 main">
             <div className="header">
               <div className="title" id="header-title">
