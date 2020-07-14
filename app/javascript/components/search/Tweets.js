@@ -74,10 +74,16 @@ class Tweets extends React.Component {
   renderContents() {    
      let body = null
      if (this.state.cuurentTabType =='for_you') {
-       body = (<div className="for-you">
-          <h3><img src="/assets/search-image-sample.png" width="407" height="200"/></h3>
-         </div>
-         )
+       body = (
+       <div>
+            <div className="for-you">
+                <h3><img src="/assets/search-image-sample.png" width="407" height="200"/></h3>
+            </div>
+            <div className="tweets">
+              {this.state.filterdTweets.map((tweet) => <Tweet key={tweet.id} tweet={tweet}/>)}
+            </div>
+            </div>
+        ) 
      } else if (this.state.cuurentTabType =='covid_19') {
        body = (<div className="covid-19">covid_19
        </div>)
@@ -94,8 +100,6 @@ class Tweets extends React.Component {
   }
 
   render () {
-    const { filterdTweets } = this.state
-
     return (
       <div className="container">
       <div className="row">
@@ -133,9 +137,6 @@ class Tweets extends React.Component {
               onClick={(e) => this.changeTab(e)}
             />
             {this.renderContents()}
-          </div>
-          <div className="tweets">
-            {filterdTweets.map((tweet) => <Tweet key={tweet.id} tweet={tweet}/>)}
           </div>
         </div>
       </div>
